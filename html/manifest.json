@@ -1,0 +1,804 @@
+{
+	"@platforms": [
+		"android",
+		"iPhone"
+	],
+	"id": "H57DB7C14",
+	"name": "湖北张氏事业平台",
+	"version": {
+		"name": "2.3.4",
+		"code": ""
+	},
+	"description": "",
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "index.html",
+	"developer": {
+		"name": "",
+		"email": "",
+		"url": ""
+	},
+	"permissions": {
+		"Cache": {
+			"description": "管理应用缓存"
+		},
+		"Camera": {
+			"description": "访问摄像头"
+		},
+		"Console": {
+			"description": "跟踪调试输出日志"
+		},
+		"Contacts": {
+			"description": "访问系统联系人信息"
+		},
+		"Device": {
+			"description": "访问设备信息"
+		},
+		"Downloader": {
+			"description": "文件下载管理"
+		},
+		"Events": {
+			"description": "应用扩展事件"
+		},
+		"File": {
+			"description": "访问本地文件系统"
+		},
+		"Gallery": {
+			"description": "访问系统相册"
+		},
+		"Invocation": {
+			"description": "使用Native.js能力"
+		},
+		"Orientation": {
+			"description": "访问方向感应器"
+		},
+		"Proximity": {
+			"description": "访问距离感应器"
+		},
+		"Storage": {
+			"description": "管理应用本地数据"
+		},
+		"Uploader": {
+			"description": "管理文件上传任务"
+		},
+		"Runtime": {
+			"description": "访问运行期环境"
+		},
+		"Barcode": {},
+		"Webview": {
+			"description": "窗口管理"
+		},
+		"NativeUI": {
+			"description": "原生UI控件"
+		},
+		"Navigator": {
+			"description": "浏览器信息"
+		},
+		"NativeObj": {
+			"description": "原生对象"
+		},
+		"Geolocation": {
+			"description": "位置信息"
+		},
+		"Share": {},
+		"OAuth": {},
+		"Payment": {}
+	},
+	"plus": {
+		"launchwebview": {
+			"statusbar": {
+				"background": "#d10100"
+			}
+		},
+		"splashscreen": {
+			"autoclose": true,
+			"waiting": true
+		},
+		"popGesture": "close",
+		"runmode": "normal",
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",
+		"distribute": {
+			"plugins": {
+				"payment": {
+					"weixin": {
+						"description": "微信支付",
+						"appid": "wx5d95b2e8488f1ba0"
+					},
+					"alipay": {
+						"description": "阿里支付",
+						"scheme": ""
+					}
+				},
+				"oauth": {
+					"weixin": {
+						"appid": "wx5d95b2e8488f1ba0",
+						"appsecret": "65a2a1da61f898e93402d0390d93f4e7"
+					}
+				},
+				"share": {
+					"weixin": {
+						"appid": "wx5d95b2e8488f1ba0",
+						"appsecret": "65a2a1da61f898e93402d0390d93f4e7",
+						"description": "可选，微信分享"
+					}
+				}
+			},
+			"apple": {
+				"appid": "",
+				"mobileprovision": "",
+				"password": "",
+				"p12": "",
+				"devices": "universal",
+				"frameworks": [],
+				"plistcmds": [
+					"Set :NSPhotoLibraryUsageDescription 选择图片用于上传照片",
+					"Set :NSCameraUsageDescription 拍照上传图片或扫描二维码用于快速进入具体的众筹详情页面",
+					"Set :NSLocationWhenInUseUsageDescription 获取用户定位信息用于发布交流圈信息时的位置显示"
+				]
+			},
+			"google": {
+				"packagename": "",
+				"keystore": "",
+				"password": "",
+				"aliasname": "",
+				"permissions": ["<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.INTERNET\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>"]
+			},
+			"orientation": [
+				"portrait-primary"
+			],
+			"icons": {
+				"ios": {
+					"prerendered": true,
+					"iphone": {
+						"normal": "unpackage/res/icons/57x57.png",
+						"retina": "unpackage/res/icons/114x114.png",
+						"spotlight-normal": "unpackage/res/icons/29x29.png",
+						"spotlight-retina": "unpackage/res/icons/58x58.png",
+						"settings-normal": "unpackage/res/icons/29x29.png",
+						"app@3x": "unpackage/res/icons/180x180.png",
+						"app@2x": "unpackage/res/icons/120x120.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"settings@3x": "unpackage/res/icons/87x87.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"spotlight@3x": "unpackage/res/icons/120x120.png",
+						"notification@2x": "unpackage/res/icons/40x40.png",
+						"notification@3x": "unpackage/res/icons/60x60.png",
+						"retina8": "unpackage/res/icons/180x180.png",
+						"retina7": "unpackage/res/icons/120x120.png",
+						"settings-retina": "unpackage/res/icons/58x58.png",
+						"settings-retina8": "unpackage/res/icons/87x87.png",
+						"spotlight-retina7": "unpackage/res/icons/80x80.png"
+					},
+					"ipad": {
+						"normal": "unpackage/res/icons/72x72.png",
+						"retina": "unpackage/res/icons/144x144.png",
+						"spotlight-normal": "unpackage/res/icons/50x50.png",
+						"spotlight-retina": "unpackage/res/icons/100x100.png",
+						"app": "unpackage/res/icons/76x76.png",
+						"app@2x": "unpackage/res/icons/152x152.png",
+						"settings": "unpackage/res/icons/29x29.png",
+						"spotlight": "unpackage/res/icons/40x40.png",
+						"proapp@2x": "unpackage/res/icons/167x167.png",
+						"settings@2x": "unpackage/res/icons/58x58.png",
+						"spotlight@2x": "unpackage/res/icons/80x80.png",
+						"notification": "unpackage/res/icons/20x20.png",
+						"notification@2x": "unpackage/res/icons/40x40.png",
+						"retina7": "unpackage/res/icons/152x152.png",
+						"normal7": "unpackage/res/icons/76x76.png",
+						"settings-retina": "unpackage/res/icons/58x58.png",
+						"settings-normal": "unpackage/res/icons/29x29.png",
+						"spotlight-normal7": "unpackage/res/icons/40x40.png",
+						"spotlight-retina7": "unpackage/res/icons/80x80.png"
+					},
+					"appstore": "unpackage/res/icons/1024x1024.png"
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png",
+					"ldpi": "unpackage/res/icons/48x48.png",
+					"hdpi": "unpackage/res/icons/72x72.png",
+					"xhdpi": "unpackage/res/icons/96x96.png",
+					"xxhdpi": "unpackage/res/icons/144x144.png",
+					"xxxhdpi": "unpackage/res/icons/192x192.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {
+						"default": "",
+						"retina35": "I:/张氏事业平台/启动页/iphone4.png",
+						"retina40": "I:/张氏事业平台/启动页/iphone5.png",
+						"retina47": "I:/张氏事业平台/启动页/iphone6.png",
+						"retina55": "I:/张氏事业平台/启动页/iphone6p.png",
+						"retina55l": "",
+						"iphonex": "I:/张氏事业平台/启动页/iphonex.png"
+					},
+					"ipad": {
+						"portrait": "",
+						"portrait-retina": "",
+						"landscape": "",
+						"landscape-retina": "",
+						"portrait7": "",
+						"portrait-retina7": "",
+						"landscape7": "",
+						"landscape-retina7": ""
+					}
+				},
+				"android": {
+					"mdpi": "",
+					"ldpi": "",
+					"hdpi": "I:/张氏事业平台/启动页/android480.png",
+					"xhdpi": "I:/张氏事业平台/启动页/android720.png",
+					"xxhdpi": "I:/张氏事业平台/启动页/android1080.png"
+				}
+			}
+		},
+		"ads": {
+			"rp": false,
+			"splash": false,
+			"push": false,
+			"spot": false
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"/login.html",
+					"/book/3/index.jpg",
+					"/book/1/index.jpg",
+					"/book/4/index.jpg",
+					"/book/2/index.jpg",
+					"/genealogydetail.html",
+					"/helpprodetail.html",
+					"/personalcenter.html",
+					"/articledetail.html"
+				],
+				"refer": [
+					"openbarcode.html",
+					"lotshelp.html",
+					"list.html",
+					"helpmanpages.html",
+					"enterprisecircle.html",
+					"personalcenter.html",
+					"rescuelist.html",
+					"enterprise.html",
+					"helpprodetail.html",
+					"login.html",
+					"articlelist.html",
+					"genealogy.html",
+					"genealogydetail.html",
+					"articledetail.html"
+				],
+				"priority": 0
+			},
+			"lotshelp.html": {
+				"resources": [],
+				"refer": [
+					"helpprodetail.html",
+					"enterprisecircle.html",
+					"index.html"
+				],
+				"priority": 0
+			},
+			"list.html": {
+				"resources": [],
+				"refer": [
+					"mydonation.html",
+					"personalcenter.html",
+					"infomodify.html",
+					"helpmanpages.html",
+					"findpwd.html",
+					"login.html",
+					"register.html",
+					"feedback.html",
+					"helplaunch.html",
+					"projectvetify.html"
+				],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"childwebview/login.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"infomodify.html": {
+				"resources": [
+					"childwebview/infomodify.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"feedback.html": {
+				"resources": [
+					"childwebview/feedback.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"register.html": {
+				"resources": [
+					"childwebview/register.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"helplaunch.html": {
+				"resources": [
+					"childwebview/helplaunch.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"findpwd.html": {
+				"resources": [
+					"childwebview/findpwd.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"projectvetify.html": {
+				"resources": [
+					"childwebview/projectvetify.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"helpmanpages.html": {
+				"resources": [],
+				"refer": [
+					"helplaunch.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"childwebview/helplaunch.html": {
+				"resources": [],
+				"refer": [
+					"childwebview/helplaunch.html",
+					"success.html"
+				],
+				"priority": 0
+			},
+			"enterprisecircle.html": {
+				"resources": [
+					"childwebview/entercircle.html"
+				],
+				"refer": [
+					"childwebview/comcircle.html",
+					"edit.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"childwebview/comcircle.html": {
+				"resources": [],
+				"refer": [
+					"index.html",
+					"personalcenter.html",
+					"lotshelp.html",
+					"login.html",
+					"photos.html"
+				],
+				"priority": 0
+			},
+			"childwebview/entercircle.html": {
+				"resources": [],
+				"refer": [
+					"index.html",
+					"enterprise.html",
+					"lotshelp.html"
+				],
+				"priority": 0
+			},
+			"projectvetifystep1.html": {
+				"resources": [
+					"childwebview/projectvetifystep1.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"success.html": {
+				"resources": [],
+				"refer": [
+					"projectvetifystep1.html"
+				],
+				"priority": 0
+			},
+			"childwebview/projectvetifystep1.html": {
+				"resources": [],
+				"refer": [
+					"vertifydata.html"
+				],
+				"priority": 0
+			},
+			"enterprise.html": {
+				"resources": [],
+				"refer": [
+					"productlist.html",
+					"productdetail.html"
+				],
+				"priority": 0
+			},
+			"edit.html": {
+				"resources": [
+					"childwebview/edit.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"personalcenter.html": {
+				"resources": [],
+				"refer": [
+					"login.html",
+					"mydonation.html",
+					"rescuemng.html",
+					"infomodify.html",
+					"modifyphone.html",
+					"modifypwd.html",
+					"feedback.html",
+					"enterpriseauth.html",
+					"personalauth.html",
+					"aboutus.html",
+					"rescuelist.html",
+					"modifyemail.html"
+				],
+				"priority": 0
+			},
+			"vertifydata.html": {
+				"resources": [],
+				"refer": [
+					"projectvetify.html",
+					"vertifysuccess.html"
+				],
+				"priority": 0
+			},
+			"childwebview/projectvetify.html": {
+				"resources": [],
+				"refer": [
+					"vertifysuccess.html"
+				],
+				"priority": 0
+			},
+			"vertifysuccess.html": {
+				"resources": [],
+				"refer": [
+					"personalcenter.html",
+					"index.html"
+				],
+				"priority": 0
+			},
+			"modifyphone.html": {
+				"resources": [
+					"childwebview/modifyphone.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modifypwd.html": {
+				"resources": [
+					"childwebview/modifypwd.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"help.html": {
+				"resources": [
+					"childwebview/help.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"childwebview/helpprodetail.html": {
+				"resources": [
+					"photos.html"
+				],
+				"refer": [
+					"help.html",
+					"login.html",
+					"realnameauth.html",
+					"lovecontributionlist.html",
+					"confirmationlist.html"
+				],
+				"priority": 0
+			},
+			"helpprodetail.html": {
+				"resources": [
+					"childwebview/helpprodetail.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"childwebview/login.html": {
+				"resources": [],
+				"refer": [
+					"register.html",
+					"findpwd.html",
+					"index.html"
+				],
+				"priority": 0
+			},
+			"enterpriseauth.html": {
+				"resources": [
+					"childwebview/enterpriseauth.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"personalauth.html": {
+				"resources": [
+					"childwebview/personalauth.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"articlelist.html": {
+				"resources": [],
+				"refer": [
+					"articledetail.html"
+				],
+				"priority": 0
+			},
+			"realnameauth.html": {
+				"resources": [
+					"childwebview/realnameauth.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"rescuelist.html": {
+				"resources": [
+					"childwebview/rescuelist.html"
+				],
+				"refer": [
+					"rescuemng.html"
+				],
+				"priority": 0
+			},
+			"rescuemng.html": {
+				"resources": [
+					"childwebview/rescuemng.html"
+				],
+				"refer": [
+					"helpprodetail.html",
+					"helplaunch.html"
+				],
+				"priority": 0
+			},
+			"confirmationlist.html": {
+				"resources": [],
+				"refer": [
+					"realnameauth.html"
+				],
+				"priority": 0
+			},
+			"childwebview/rescuelist.html": {
+				"resources": [
+					"/login.html"
+				],
+				"refer": [
+					"rescuemng.html",
+					"login.html"
+				],
+				"priority": 0
+			},
+			"childwebview/rescuemng.html": {
+				"resources": [],
+				"refer": [
+					"helplaunch.html",
+					"projectvetifystep1.html",
+					"helpprodetail.html"
+				],
+				"priority": 0
+			},
+			"genealogy.html": {
+				"resources": [
+					"childwebview/familytree.html",
+					"childwebview/genealogylist.html"
+				],
+				"refer": [
+					"login.html",
+					"addnumber.html"
+				],
+				"priority": 0
+			},
+			"childwebview/genealogylist.html": {
+				"resources": [],
+				"refer": [
+					"genealogybook.html",
+					"genealogydetail.html"
+				],
+				"priority": 0
+			},
+			"genealogydetail.html": {
+				"resources": [
+					"childwebview/genealogydetail.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"childwebview/genealogydetail.html": {
+				"resources": [
+					"/genealogybook.html"
+				],
+				"refer": [
+					"genealogybook.html",
+					"addnumber.html"
+				],
+				"priority": 0
+			},
+			"/login.html": {
+				"resources": [],
+				"refer": [
+					"login.html"
+				],
+				"priority": 0
+			},
+			"childwebview/addnumber.html": {
+				"resources": [
+					"/login.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"addnumber.html": {
+				"resources": [
+					"childwebview/addnumber.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"modifyemail.html": {
+				"resources": [
+					"childwebview/modifyemail.html"
+				],
+				"refer": [],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"css/base.css",
+				"img/man_step_bg.jpg",
+				"projectvetify2.html",
+				"img/upload_pic_1.jpg",
+				"img/index_zupu_bg.jpg",
+				"img/heart.png",
+				"img/data_num.png",
+				"img/pro_ver_icon2.png",
+				"img/index_06.jpg",
+				"img/add.png",
+				"js/public/common.js",
+				"img/enter_tri.png",
+				"img/index_seek.png",
+				"img/green_radio_on.png",
+				"img/images/enterprise_title.png",
+				"img/index_icon3.png",
+				"js/public/page/login.js",
+				"img/radio_se_on.png",
+				"img/select_tri.png",
+				"img/pro_mon.png",
+				"img/pro_ver_tab3.png",
+				"img/forward.png",
+				"img/enterprise_tri.png",
+				"img/pro_more.png",
+				"img/index_icon2.png",
+				"img/index_nav5_ac.png",
+				"childwebview/barcode_scan.html",
+				"img/pro_pic.jpg",
+				"js/public/index.js",
+				"img/enter_icon3.png",
+				"img/more.png",
+				"img/rescue_mng_1.png",
+				"img/images/enter_icon1.png",
+				"img/alarm.png",
+				"img/pro_times.png",
+				"img/opt.png",
+				"img/mark.png",
+				"img/images/enter_tri.png",
+				"img/heart_circle.png",
+				"img/images/enter_icon3.png",
+				"img/upload_pic_2.jpg",
+				"img/rescue_mng_4.png",
+				"img/donation_icon1.png",
+				"img/pro_ver_icon3.png",
+				"img/mine_icon5.png",
+				"img/praise.png",
+				"img/exp_ion1.png",
+				"js/public/jquery-2.1.4.min.js",
+				"img/pro_ver_tab1_ac.png",
+				"img/index_nav3_ac.png",
+				"img/index_nav1_ac.png",
+				"img/pro_ver_tab2_ac.png",
+				"img/loading.png",
+				"img/head_pic_edit.png",
+				"js/public/page/findpwd.js",
+				"img/radio_on.png",
+				"css/swiper.min.css",
+				"img/index_nav3.png",
+				"js/public/openbarcode.js",
+				"img/upload_pic_3.jpg",
+				"img/data_mon.png",
+				"img/help_banner.jpg",
+				"img/index_nav2_ac.png",
+				"img/pro.jpg",
+				"childwebview/easyerrorbox.html",
+				"img/enterprise_title.png",
+				"img/evaluate_green.png",
+				"img/pro_ver_tab1.png",
+				"img/wexin.png",
+				"img/test_p.jpg",
+				"img/initiator.jpg",
+				"img/enter_icon2.png",
+				"img/mine_icon6.png",
+				"img/zan.png",
+				"img/index_icon4.png",
+				"img/green_radio.png",
+				"img/upload_pic_6.jpg",
+				"img/step.png",
+				"img/rescue_mng_3.png",
+				"img/enter_icon1.png",
+				"img/ellipsis.png",
+				"img/list_tri.png",
+				"img/close.png",
+				"img/mine_icon7.png",
+				"img/upload_pic_4.jpg",
+				"img/rescue_mng_2.png",
+				"img/images/enter_icon2.png",
+				"img/pro_list.png",
+				"img/enters.png",
+				"img/upload_pic_5.jpg",
+				"img/index_nav4.png",
+				"img/index_41.jpg",
+				"img/index_33.jpg",
+				"img/donation_icon4.png",
+				"img/mine_icon4.png",
+				"img/pwd.png",
+				"js/public/immersed.js",
+				"img/mine_icon3.png",
+				"img/index_nav5.png",
+				"img/radio.png",
+				"img/user.png",
+				"img/search.png",
+				"img/donation_icon3.png",
+				"img/shang.png",
+				"img/pro_ver_tab3_ac.png",
+				"js/public/global.js",
+				"img/index_nav2.png",
+				"img/pro_checked.png",
+				"js/public/swiper.min.js",
+				"childwebview/projectvetify2.html",
+				"img/exp_ion2.png",
+				"img/donation_icon5.png",
+				"img/ping.png",
+				"img/camera.png",
+				"img/mine_icon2.png",
+				"js/public/page/register.js",
+				"img/back.png",
+				"img/pro_tri.png",
+				"img/lots_help_icon.png",
+				"img/index_nav1.png",
+				"img/edit.png",
+				"img/index_nav4_ac.png",
+				"img/zande.png",
+				"img/qq.png",
+				"img/index_icon1.png",
+				"img/pro_ver_tab2.png",
+				"js/public/createwebview.js",
+				"img/rescue_bg.jpg",
+				"img/lots_help_pic.png",
+				"img/pro_detail_21.png",
+				"img/pro_detail_mon.png",
+				"img/pro_detail_dai.png",
+				"img/donation_icon2.png",
+				"img/mine_icon1.png",
+				"img/red_point_bg.png",
+				"img/pro_ver_icon1.png",
+				"img/radio_se.png",
+				"img/images/pro.jpg"
+			]
+		}
+	}
+}

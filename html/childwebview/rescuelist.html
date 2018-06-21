@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+	<div id="app"> 
+		<!--<header>
+			<div class="header-wrap">
+				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">发起的救助</span>
+			</div>
+		</header>-->
+        <ul class="rescue-list">
+            <li v-for="item in data" @click="clicked('/rescuemng.html?id=' + item.id)">
+                <img :src="item.imageUrl" alt="" class="pic">
+                <div class="float">
+                    <p>{{item.title}}</p>
+                    <div class="status" :class="{'red': item.status == 2}">{{statusList[item.status - 1]}}</div>
+                    <p class="time">{{item.publishDate}}</p>
+                </div>
+            </li>
+        </ul>
+		<load-more :datalength="datalength" ref="load"></load-more>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/rescuelist.js'></script>
+</body>
+</html>

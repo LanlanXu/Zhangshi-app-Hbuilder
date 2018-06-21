@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="misapplication-tap-highlight" content="no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/LCalendar.min.css">
+    <script type="text/javascript" src="../js/public/LCalendar.min.js"></script>
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+    <script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='../js/public/swiper.min.js'></script>
+    <script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+    <div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="info-modify add-number">
+            <!--<ul class="change-type">
+                <li v-for="(item, index) in relationshipCon" :class="{'on': tabIndex == index}" @click="tabIndex=index">{{item}}</li>
+            </ul>-->
+            <div class="name-line">
+                <div class="label">姓：</div>
+                <input type="text" class="short" placeholder="输入姓" v-model="form.nickName1">
+                <div class="label">名：</div>
+                <input type="text" class="short" placeholder="输入名" v-model="form.nickName2">
+                <div class="label">排行：</div>
+                <input type="number" class="middle" placeholder="输入排行" v-model="form.rank">
+            </div>
+            <div class="row">
+                <div class="label">性别：</div>
+                <div class="cont">
+                    <ul class="switch">
+                        <li v-for="(item, index) in sexCon" :class="{'on': tabIndexOfSex == index}" @touchstart="tabIndexOfSex=index">{{item}}</li>
+                    </ul>
+                    <span class="radio" v-for="(item, index) in liveCon" :class="{'on': tabIndexOfLive == index}" @click="tabIndexOfLive=index">{{item}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">第：</div>
+                <div class="cont">
+                    <input type="number" class="short" placeholder="世代数" v-model="form.Level"> 代
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">父亲：</div>
+                <div class="cont">
+                    <input type="text" placeholder="请输入父亲姓名" v-model="form.fathername" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">出生年月：</div>
+                <div class="cont">
+                    <input type="text" placeholder="请选择" placeholder="" v-model="form.birthday" readonly="" name="input_date" placeholder="请输入日期"
+                        id="calendar" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">联系电话：</div>
+                <div class="cont">
+                    <input type="text" placeholder="请填写您的联系方式" v-model="form.telephone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">身份证：</div>
+                <div class="cont">
+                    <input type="text" placeholder="请填写您的身份证号码" v-model="form.idcard">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">文化程度：</div>
+                <div class="cont">
+                    <input type="text" placeholder="请填写您的文化程度" v-model="form.education">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">家庭住址：</div>
+                <div class="cont">
+                    <input type="text" placeholder="请填写您的家庭住址" v-model="form.address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">行转：</div>
+                <div class="cont">
+                    <textarea name="" placeholder="请填写行传" id="" cols="30" rows="3" class="word" v-model="form.description"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="landing marginB32">
+            <div class="main-btn" @click="submit">提交</div>
+        </div>
+    </div>
+    <script type='text/javascript' src='../js/public/global.js'></script>
+    <script type='text/javascript' src='../js/page/addnumber.js'></script>
+</body>
+
+</html>

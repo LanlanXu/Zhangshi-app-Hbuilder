@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="misapplication-tap-highlight" content="no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/public/common.js"></script>
+    <script type="text/javascript" src="js/public/immersed.js"></script>
+    <script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='js/public/swiper.min.js'></script>
+    <script src="js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+    <div id="app">
+        <header>
+            <div class="header-wrap">
+                <div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+                <span class="title">千人众筹</span>
+            </div>
+        </header>
+        <ul class="lots-help-list">
+            <li v-for="item in dataList" @click="clicked('/helpprodetail.html?id=' + item.id)">
+                <!--<div class="status">已审核</div>-->
+                <!--<h1><img src="img/lots_help_icon.png" alt="">中国红十字基金会</h1>-->
+                <h1><strong>{{item.orgName}}</strong>推荐</h1>
+                <div class="bottom">
+                    <img :src="item.imageUrl" alt="" class="pic">
+                    <div class="float">
+                        <h2>{{item.title}}</h2>
+                        <div class="progress-bar">
+                            <div class="percentage" :style="{width: (item.rate*92 + 2) + '%'}">
+                                <span class="num">{{item.rate*100}}%</span>
+                            </div>
+                        </div>
+                        <p class="data">
+                            <span>目标：{{splitByComma(item.targetAmount)}}元</span>
+                            <span>已筹：{{splitByComma(item.amount)}}元</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+            <li v-for="item in dataDone" @click="clicked('/helpprodetail.html?id=' + item.id)">
+                <!--<div class="status">已审核</div>-->
+                <!--<h1><img src="img/lots_help_icon.png" alt="">中国红十字基金会</h1>-->
+                <h1><strong>{{item.orgName}}</strong>推荐</h1>
+                <div class="bottom">
+                    <img :src="item.imageUrl" alt="" class="pic">
+                    <div class="float">
+                        <h2>{{item.title}}</h2>
+                        <div class="progress-bar">
+                            <div class="percentage" :style="{width: (item.rate*92 + 2) + '%'}">
+                                <span class="num">{{item.rate*100}}%</span>
+                            </div>
+                        </div>
+                        <p class="data">
+                            <span>目标：{{splitByComma(item.targetAmount)}}元</span>
+                            <span>已筹：{{splitByComma(item.amount)}}元</span>
+                        </p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <load-more :datalength="datalength" ref="load"></load-more>
+    </div>
+    <script type='text/javascript' src='js/public/global.js'></script>
+    <script type='text/javascript' src='js/page/lotshelp.js'></script>
+</body>
+
+</html>

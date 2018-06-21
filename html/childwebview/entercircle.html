@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/public/common.js"></script>
+	<script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body style="background: #f8f8f8;">
+	<div id="app">
+		<div class="enter-pri">
+			<div class="search">
+				<div class="left">
+					<div class="select" @click="openSelect"><img src="../img/enter_tri.png" alt="" class="tri">{{types}}</div>
+					<input type="text" placeholder="您要检索的企业" v-model="searchCon">
+				</div>
+				<div class="btn" @click="search">搜索</div>
+			</div>
+			<ul class="ent-list" v-if="data.length">
+				<li v-for="item in data" @click="clicked('/enterprise.html?id=' + item.id)">
+					<img :src="item.legalImage" alt="" class="pic">
+					<div class="float">
+						<h1><span class="red">{{item.legal}}</span>/董事长</h1>
+						<h2>{{item.name}}</h2>
+						<p>
+							<img src="../img/enters.png" alt="" class="icon">
+							<span class="orange">企业介绍：</span>{{item.intro.replace(/^\s+|.nbsp;/g,'')}}...
+						</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<load-more :datalength="datalength" ref="load"></load-more>
+		<div class="layer" v-if="selectBool" style="display: none" id="layer">
+			<div class="cont">
+				<ul>
+					<li class="radio" v-for="item in typeList" @click="item.choosed = !item.choosed" :class="{'on': item.choosed}">{{item.name}}</li>
+				</ul>
+				<div class="layerBtns">
+					<div class="btn" @click="getTypes">确定</div>
+					<div class="btn close" @click="closeSelect">关闭</div>
+				</div>
+			</div>
+		</div>
+		<!--<footer>
+			<ul>
+				<li ontouchstart="clicked('/index.html')">首页</li>
+				<li>家谱</li>
+				<li ontouchstart="clicked('/lotshelp.html')">众筹</li>
+				<li class="on">企业圈</li>
+				<li ontouchstart="clicked('/personalcenter.html')">我的</li>
+			</ul>
+		</footer>-->
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/entercircle.js'></script>
+</body>
+
+</html>

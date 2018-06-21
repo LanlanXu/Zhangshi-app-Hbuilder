@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="misapplication-tap-highlight" content="no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+    <script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='../js/public/swiper.min.js'></script>
+    <script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+    <div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="info-modify help">
+            <div class="row">
+                <div class="label">帮助金额：</div>
+                <div class="cont">
+                    <input type="text" pattern="[0-9]*" ref="input" v-model="form.money" placeholder="输入帮助金额" class="shortNum" @input="updateValue($event.target.value)">                    元
+                </div>
+            </div>
+            <div class="row adjust-row">
+                <div class="label">留言：</div>
+                <div class="cont">
+                    <textarea name="" placeholder="和他说一句鼓励的话吧" id="" cols="30" rows="3" v-model="form.content"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="pay-type adjust">
+            <h1>选择支付方式</h1>
+            <ul>
+                <li v-for="(item, index) in payType" @click="form.type = index">
+                    <img :src="item.src" alt="" class="icon"> {{item.title}}
+                    <div class="radio-type" :class="{'on': index == form.type}"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="info-modify help">
+            <div class="help-extra">
+                <span class="radio" v-if="false" :class="{'on': anonymous}" @click="anonymous=!anonymous">匿名帮助</span>
+                <!--<div class="fen"><img src="../img/heart_circle.png" alt="">您的爱心值将增加<span class="orange">10</span>分</div>-->
+            </div>
+        </div>
+        <div class="landing marginB32">
+            <div class="main-btn" @click="submit">立即支付</div>
+        </div>
+    </div>
+    <script type='text/javascript' src='../js/public/global.js'></script>
+    <script type='text/javascript' src='../js/page/help.js'></script>
+</body>
+
+</html>

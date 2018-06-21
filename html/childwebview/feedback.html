@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+	<div id="app">
+		<!--<header>
+			<div class="header-wrap">
+				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">意见反馈</span>
+			</div>
+		</header>-->
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="info-modify feedback">
+            <div class="row">
+                <div class="label">标题：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入标题" v-model="form.title">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">电话：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入电话号码" v-model="form.telephone">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">邮箱：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入邮箱" v-model="form.email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">意见：</div>
+                <div class="cont">
+                    <textarea name="" placeholder="输入您的意见" id="" cols="30" rows="3" v-model="form.content"></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="landing marginB32">
+            <div class="main-btn" @click="submit">提交</div>
+        </div>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/feedback.js'></script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+	<div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="info-modify pro-ver">
+            <p class="alert">提示证件号信息仅用于审核，不会被泄露</p>
+            <h1 class="pro-ver-title"><img src="../img/pro_ver_icon1.png" alt="" class="icon">求助者信息</h1>
+            <div class="row">
+                <div class="label">真实姓名：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入求助者真实姓名" v-model="form.helpSeekerName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">证件类型：</div>
+                <div class="cont">
+                    <span class="radio" :class="{'on': (form.idCardType == 1)}" @click="form.idCardType = 1">身份证</span>
+                    <span class="radio" :class="{'on': (form.idCardType == 2)}" @click="form.idCardType = 2">出生证明</span>
+                </div>
+            </div>
+            <div class="row" v-if="form.idCardType == 1">
+                <div class="label">身份证号：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入求助者身份证号" v-model="form.helpSeekerIdcard">
+                </div>
+            </div>
+            <div class="row" v-if="form.idCardType == 2">
+                <div class="label">出生证编号：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入求助者出生证编号" v-model="form.helpSeekerBirthNum">
+                </div>
+            </div>
+        </div>
+        <div class="info-modify pro-ver">
+            <h1 class="pro-ver-title"><img src="../img/pro_ver_icon1.png" alt="" class="icon">收款人信息</h1>
+            <ul class="tab">
+                <li v-for="(item, index) in tab" :class="{'on': form.relationship == (index + 1)}" @click="form.relationship=(index + 1)">{{item}}</li>
+            </ul>
+            <div class="row">
+                <div class="label">真实姓名：</div>
+                <div class="cont">
+                    <input type="text" placeholder="填写收款人真实姓名" v-model="form.payeeName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">身份证号：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入收款人身份证号" v-model="form.payeeIdcard">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">手机号码：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入收款人手机号码" v-model="form.payeePhone">
+                </div>
+            </div>
+            <h1 class="pro-ver-title"><img src="../img/pro_ver_icon2.png" alt="" class="icon">收款人账号</h1>
+            <div class="row">
+                <div class="label">开户银行：</div>
+                <div class="cont">
+                    <input type="text" placeholder="填写收款人银行" v-model="form.bank">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">银行卡号：</div>
+                <div class="cont">
+                    <input type="text" placeholder="填写收款人银行卡号" v-model="form.banknumber">
+                </div>
+            </div>
+        </div>
+        <div class="landing">
+            <p class="mark"><img src="../img/mark.png" alt="">信息不会被泄露</p>
+            <div class="main-btn" @click="submit">下一步上传资料</div>
+            <p class="tele">客服电话：<a href="tel:027-81801226">027-81801226</a></p>
+        </div>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/projectvetifystep1.js'></script>
+</body>
+</html>

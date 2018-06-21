@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/public/common.js"></script>
+	<script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body>
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="seek-help" @click="toHelp()"><img src="img/index_seek.png" alt="" />求助</div>
+				<span class="title">张氏事业网</span>
+				<img src="img/scan.png" alt="" class="scan" @click="clickedTo('/barcode_scan.html', true)">
+			</div>
+		</header>
+		<div class="banner">
+			<div class="swiper-container" id="banner">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide" v-for="item in banner" @click="bannerHref(item.type, item.url, item.articleId)"><img :src="item.image" alt="" /></div>
+				</div>
+			</div>
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="index-help-banner">
+			<h1>千人众筹</h1>
+			<h2>流动的族谱，不变的爱心</h2>
+			<div class="swiper">
+				<div class="swiper-container" id="index-help">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide help-banner" @click="toHelp(2)" style="background: #fff url(img/help_banner_02.png) no-repeat center center; background-size: 100% auto;">
+							<h1 class="title">贫困求学</h1>
+							<p class="sub-title">弘扬中华美德，关爱寒门学子</p>
+						</div>
+						<div class="swiper-slide help-banner" @click="toHelp(1)" style="background: #fff url(img/help_banner_01.png) no-repeat center center; background-size: 100% auto;">
+							<h1 class="title">重大疾病</h1>
+							<p class="sub-title">开展大病救助，众筹暖人心</p>
+						</div>
+						<div class="swiper-slide help-banner" @click="toHelp(3)" style="background: #fff url(img/help_banner_03.png) no-repeat center center; background-size: 100% auto;">
+							<h1 class="title">孤寡求助</h1>
+							<p class="sub-title">汇涓涓细流，成汪洋大海</p>
+						</div>
+						<div class="swiper-slide swiper-data">
+							<h1 class="title">千人众筹大数据</h1>
+							<h2 class="sub-title">筹款合计：</h2>
+							<p><img src="img/data_01.png" alt="" class="icon">{{splitByComma(topData.maxAmount)}}</p>
+							<h2 class="sub-title">求助人数：</h2>
+							<p><img src="img/data_02.png" alt="" class="icon">{{splitByComma(topData.projectCount)}}</p>
+							<h2 class="sub-title">参与人数：</h2>
+							<p><img src="img/data_03.png" alt="" class="icon">{{splitByComma(topData.helpCount)}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="index-news section">
+			<div class="section-title">
+				<img src="img/index_icon1.png" class="title-icon" alt="" />最新动态
+				<div class="more" @click="clickedTo('articlelist.html')">更多</div>
+			</div>
+			<ul>
+				<li v-for="item in articleList" @click="clickedTo('/articledetail.html?id=' + item.id)">
+					<div class="news-title">{{item.title}}</div>
+					<div class="time">{{item.publishTime}}</div>
+				</li>
+			</ul>
+		</div>
+		<div class="index-genealogy section">
+			<div class="section-title">
+				<img src="img/index_icon2.png" class="title-icon" alt="" />精选族谱
+				<div class="more" @click="clickedTo('/genealogy.html?page=true')">更多</div>
+			</div>
+			<ul class="list">
+				<li v-for="(item, index) in bookList" @click="clickedTo('/genealogydetail.html?id=' + item.id + '&title=' + item.name + '&time=' + formatDate(item.createTime))">
+					<div class="pic" :types="'type' + (item.docType + 1)">
+						<div class="bg"></div>
+						<div class="title">
+							<div class="top"></div>
+							<div class="middle">
+								<p>{{item.name}}</p>
+							</div>
+							<div class="bottom"></div>
+						</div>
+					</div>
+					<!--<h1>张氏族谱卷一</h1>-->
+					<p class="name">{{item.province}}-{{item.city}}</p>
+					<p class="name">{{formatDate(item.createTime)}}</p>
+				</li>
+			</ul>
+		</div>
+		<div class="index-enterpriser section">
+			<div class="section-title">
+				<img src="img/index_icon3.png" class="title-icon" alt="" />企业家
+				<div class="more" @click="clickedTo('enterprisecircle.html')">更多</div>
+			</div>
+			<ul>
+				<li v-for="item in enterList" @click="clickedTo('/enterprise.html?id=' + item.id)">
+					<img :src="item.legalImage" alt="" class="left-pic" />
+					<div class="float">
+						<h1><span class="red">{{item.legal}}</span>/董事长</h1>
+						<p>{{item.name}}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="index-help section">
+			<div class="section-title">
+				<img src="img/index_icon4.png" class="title-icon" alt="" />千人众筹
+				<div class="more" @click="clickedTo('lotshelp.html')">更多</div>
+			</div>
+			<ul class="lots-help-list">
+				<li v-for="item in helpList" @click="clickedTo('/helpprodetail.html?id=' + item.id)">
+					<div class="status">已审核</div>
+					<!--<h1><img src="img/lots_help_icon.png" alt="">中国红十字基金会</h1>-->
+					<h1><strong>{{item.orgName}}</strong>推荐</h1>
+					<div class="bottom">
+						<img :src="item.imageUrl" alt="" class="pic">
+						<div class="float">
+							<h2>{{item.title}}</h2>
+							<div class="progress-bar">
+								<div class="percentage" :style="{width: (item.rate*92 + 2) + '%'}">
+									<span class="num">{{item.rate*100}}%</span>
+								</div>
+							</div>
+							<p class="data">
+								<span>目标：{{splitByComma(item.targetAmount)}}元</span>
+								<span>已筹：{{splitByComma(item.amount)}}元</span>
+							</p>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<footer>
+			<ul>
+				<li class="on">首页</li>
+				<li @click="clickedTo('genealogy.html')">族谱</li>
+				<li @click="clickedTo('lotshelp.html')">众筹</li>
+				<li @click="toCircle">企业圈</li>
+				<li @click="toPersonal">我的</li>
+			</ul>
+		</footer>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/index.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/public/common.js"></script>
+    <script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #fff;">
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">证实列表</span>
+			</div>
+		</header>
+        <div class="confirm-list">
+            <p class="ins">有<span class="red">{{total}}人</span>实名为Ta证实</p>
+            <ul class="list">
+                <li v-for="item in confirmList">
+                    <div class="top">
+                        <img :src="item.image" alt="" class="pic">
+                        <div class="float">
+                            <h1 class="name">{{item.nickName}}</h1>
+                            <p class="heart-val">爱心值<span class="red">+15</span></p>
+                            <div class="tag"> 
+                                <span class="type">{{relationshipList[item.relationship - 1]}}</span>
+                                <div class="vertify"><img src="./img/gougou.png" alt="" class="icon"><span class="red">已实名</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom">
+                        <p class="cont">{{item.content}}</p>
+                        <p class="time">{{item.verifyTime}}</p>
+                    </div>
+                </li>
+            </ul>
+            <div class="btn"><span class="word" :class="{'disabled': disabled}" @click="goAuto()">帮TA证实</span></div>
+        </div>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+    <script type='text/javascript' src='js/page/confirmationlist.js'></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/public/common.js"></script>
+    <script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #fff;">
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">爱心贡献表</span>
+			</div>
+		</header>
+        <div class="love-contri">
+            <p class="ins">贡献排行榜说明：根据用户在项目详情页右上角转发后获得好友支持的金额和自己支持的金额总和进行排名</p>
+            <ul class="top-three">
+                <li v-for="item in topThree">
+                    <img :src="helpList[item]?helpList[item].donorImage : './img/undefined.png'" alt="" class="pic">
+                    <p class="detail"><span class="num">{{item + 1}}</span><span class="name">{{helpList[item]?helpList[item].donorNickName : '?'}}</span></p>
+                    <p class="money"><span class="num">{{helpList[item]?splitByComma(helpList[item].totalAmount) : '?'}}</span>元</p>
+                </li>
+            </ul>
+            <table class="other">
+                <tr v-for="(item, index) in helpList" v-if="index > 2 && index < 10">
+                    <td class="num">{{index + 1}}</td>
+                    <td class="pic"><img :src="item.donorImage" alt=""></td>
+                    <td class="name">{{item.donorNickName}}</td>
+                    <td class="money"><span class="num">{{splitByComma(item.totalAmount)}}</span><span class="yuan">元</span></td>
+                </tr>
+            </table>
+        </div>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/lovecontributionlist.js'></script>
+</body>
+</html>

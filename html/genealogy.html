@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/public/common.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type="text/javascript" charset="utf-8">
+		var ws = null, embed = null;
+		// 扩展API加载完毕，现在可以正常调用扩展API 
+		function plusReady() {
+			ws = plus.webview.currentWebview();
+			ws.addEventListener('show', createEmbed, false);
+		}
+		// 判断扩展API是否准备，否则监听"plusready"事件
+		if (window.plus) {
+			plusReady();
+		} else {
+			document.addEventListener("plusready", plusReady, false);
+		}
+		function createEmbed() {
+			var topoffset = document.getElementsByTagName('header')[0].offsetHeight;
+			if (plus.navigator.isImmersedStatusbar()) {// 兼容immersed状态栏模式
+				topoffset = (Math.round(plus.navigator.getStatusbarHeight()) + topoffset);
+			}
+
+			embed = plus.webview.create('childwebview/genealogylist.html', 'childwebview/genealogylist', { top: (topoffset - 1) + 'px', bottom: '0px', position: 'dock', dock: 'bottom', bounce: 'none' });
+			ws.append(embed);
+			embed.addEventListener('loaded', function () {
+				plus.nativeUI.closeWaiting();
+			}, false);
+			embed.addEventListener('loading', function () {
+				plus.nativeUI.showWaiting('', { style: 'black', modal: false, background: 'rgba(0,0,0,0)' });
+			}, false);
+			$(function () {
+				$('.tab li').click(function () {
+					$('.tab li').removeClass('on');
+					$(this).addClass('on');
+
+					if (!$(this).index()) {
+						embed.loadURL('childwebview/genealogylist.html');
+						$('#add').hide();
+					} else {
+						embed.loadURL('childwebview/familytree.html');
+						$('#add').show();
+					}
+				})
+
+				// $('#add').click(function(){
+				// 	if($.checklogin()) clicked('/addnumber.html');
+				// });
+			})
+		}
+	</script>
+	<script type="text/javascript" src="js/public/immersed.js"></script>
+
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">族谱</span>
+				<!--<ul class="tab">
+					<li class="on">族谱</li>
+					<li>家谱</li>
+				</ul>-->
+				<!--<div class="add-num" id="add" style="display: none;"><img src="img/add_num.png" alt="">添加人丁</div>-->
+			</div>
+		</header>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+</body>
+
+</html>

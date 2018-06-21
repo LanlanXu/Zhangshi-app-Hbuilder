@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+	<div id="app">
+		<error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="alert center" v-if="authStatus">{{authStatus}}</div>
+        <div class="info-modify padd">
+            <div class="row">
+                <div class="label">真实姓名：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入真实姓名" v-model="form.realName">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">身份证号：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入身份证号" v-model="form.idNumber">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">身份证明：</div>
+                <div class="cont">
+                    <div class="upload">
+                        <img alt="" class="idPic" :src="form.idCardImage1">
+                        <input type="file" accept="image/*" @change="showImg($event, 1)">
+                        <img src="../img/add.png" alt="" class="add">
+                        <p>身份证正面照</p>
+                    </div>
+                    <div class="upload">
+                        <img alt="" class="idPic" :src="form.idCardImage2">
+                        <input type="file" accept="image/*" @change="showImg($event, 2)">
+                        <img src="../img/add.png" alt="" class="add">
+                        <p>身份证背面照</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="landing marginB32">
+            <div class="main-btn" :class="{'disable': disable}" @click="submit">提交</div>
+        </div>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/personalauth.js'></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f8f8f8;">
+	<div id="app">
+		<error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="edit-page">
+            <textarea name="" placeholder="填写你这一刻想交流的心情..." id="" cols="30" rows="3" class="word" v-model="form.content"></textarea>
+            <div class="upload">
+                <div class="pic" v-for="let (item, index) in photoList">
+                    <img :src="item" alt="" class="img">
+                    <img src="../img/close.png" alt="" class="close" @click="deletePhoto(index)">
+                </div>
+                <div class="add-btn" v-if="photoList.length < 9">
+                    <input type="file"  multiple accept="image/*" @change="showImg">
+                    <img src="../img/add.png" alt="" class="add">
+                </div>
+            </div>
+        </div>
+        <div class="landing addr">
+            <p class="read" @click="agreed = !agreed"><span class="radio_green" :class="{'on': agreed}"></span>显示所在位置</p>
+        </div>
+        <div class="landing marginB32">
+            <div class="main-btn" @click="submit">提交</div>
+        </div>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/edit.js'></script>
+</body>
+</html>

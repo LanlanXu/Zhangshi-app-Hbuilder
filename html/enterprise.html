@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/public/common.js"></script>
+	<script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body style="background: #f8f8f8;">
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">企业详情</span>
+			</div>
+		</header>
+		<div class="enterprise">
+			<div class="detail" v-if="detail">
+				<div class="introduce">
+					<img :src="detail.image" alt="" class="pic">
+					<span class="bold">{{detail.name}}</span><br>
+					<p class="other"><span class="orange"><img src="img/enter_icon1.png" alt="">成立日期：</span>{{detail.createTime.slice(0, 10)}}</p>
+					<p class="other"><span class="orange"><img src="img/enter_icon2.png" alt="">企业规模：</span>{{detail.scale}}人</p>
+					<p class="other"><span class="orange"><img src="img/enter_icon3.png" alt="">董事长：</span>{{detail.legal}}</p>
+				</div>
+				<div class="introduce">
+					<span class="orange"><img src="img/enterprise_title.png" alt="" class="icon">企业介绍</span><br>
+					<!--&nbsp;&nbsp;<span v-html="detail.intro"></span>-->
+					<span v-html="detail.content"></span>
+					<!--.replace(/<\/?([^\/>]+)>/g, '')-->
+				</div>
+
+			</div>
+			<div class="product" v-if="proList.length">
+				<h1 class="block-title">产品介绍</h1>
+				<div class="tri" @click="clicked('/productlist.html?id=' + id)" v-if="proList.length > 9"><span>更多</span><img src="img/enterprise_tri.png" alt=""></div>
+			</div>
+			<ul class="product-list" v-if="proList.length">
+				<li v-for="(item, index) in proList" @click="clicked('/productdetail.html?id=' + item.id)" v-if="index < 9">
+					<img :src="item.image" alt="" class="pic">
+					<h1>{{item.name}}</h1>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/enterprise.js'></script>
+</body>
+
+</html>

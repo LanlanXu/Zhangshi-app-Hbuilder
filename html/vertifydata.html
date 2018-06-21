@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/public/common.js"></script>
+    <script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+	<div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+		<header>
+			<div class="header-wrap">
+				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">项目验证</span>
+			</div>
+		</header>
+        <div class="upload-data">
+            <p class="alert">提示：以下信息仅用于项目验证，不会被泄露 </p>
+            <div class="item">
+                <h1>上传认证资料</h1>
+                <div class="pic">
+                    <!--<img :src="form.upImgSrc1" alt="" class="img" v-if="form.upImgSrc1">-->
+                    <div class="layer">上传<input type="file" multiple accept="image/*" @change="showImg"></div>
+                </div>
+                <p class="last-line">大众救助需要上传：xxx、xxx</p>
+            </div>
+            <div class="item" v-for="(item, index) in photoList">
+                <div class="pic">
+                    <img :src="item" alt="" class="img">
+                    <div class="delete" @click="deletePhoto(index)"><img src="./img/delete_ver_pic.png" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="landing">
+            <div class="main-btn" @click="submit">提交</div><!--  ontouchstart="clicked('/projectvetify.html')" -->
+            <p class="tele">客服电话：<a href="tel:027-81801226">027-81801226</a></p>
+        </div>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/vertifydata.js'></script>
+</body>
+</html>

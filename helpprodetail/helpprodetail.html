@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script src="js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+    <header>
+        <div class="header-wrap">
+            <span class="title">千人帮扶</span>
+        </div> 
+    </header>
+	<div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div ref="body">
+            <div class="help-pro" v-if="detail">
+                <h1 class="title">{{detail.title}}</h1>
+                <!--<p class="data"><img src="img/pro_detail_dai.png" alt="">剩余<span class="orange">{{detail.title}}</span>天</p>-->
+                <div class="progress-bar">
+                    <div class="percentage" :style="{width: (detail.rate*94 + 2) + '%'}">
+                        <span class="num">{{detail.rate*100}}%</span>
+                    </div>
+                </div>
+                <p class="data"><img src="img/pro_detail_mon.png" alt="">目标金额<span class="orange">{{splitByComma(detail.targetAmount)}}</span>元</p>
+                <div class="block">
+                    <div class="item">
+                        <div class="orange"><img src="img/pro_mon.png" alt="">{{splitByComma(detail.amount)}}</div>
+                        <p>已筹金额(元)</p>
+                    </div>
+                    <div class="item">
+                        <div class="orange"><img src="img/pro_times.png" alt="">{{detail.helpCount ? detail.helpCount : 0}}</div>
+                        <p>帮助次数</p>
+                    </div>
+                </div>
+                <div class="head-title orange" @click="clicked('/lovecontributionlist.html?id=' + id)">
+                    <img src="img/pro_list.png" alt="" class="icon">爱心贡献榜单
+                    <div class="tri"><img src="img/pro_tri.png" alt=""></div>
+                </div>
+                <div class="server-fee">
+                    <div class="pic">0服务费</div>
+                    <div class="float">
+                        <!--<h2 class="orange"></h2>-->
+                        <p>“千人帮扶”计划为湖北张氏宗亲提供助学励志、重疾救助、孤寡慰问方面的帮助。</p>
+                    </div>
+                </div>
+                <div class="pro-detail">
+                    <h1 class="block-title">项目详情</h1> 
+                    <div class="words" :style="{height: heightAuto1 ? 'auto' : '', maxHeight: heightAuto1 ? 'initial' : ''}">
+                        {{detail.content}}
+                        <div class="more orange" @click="heightAuto1 = true" v-if="!heightAuto1">查看原文<img src="img/pro_more.png" alt=""></div>
+                    </div>
+                    <div class="pics">
+                        <img :src="item" alt="" v-for="(item, index) in detail.projectImageUrls" @click="openPhoto(index, 'projectImageUrls')">
+                    </div>
+                </div>
+                <div class="initiator">项目发起人: <img :src="detail.publisherImage" alt="">{{detail.publisherName}}</div>
+                <div class="pro-detail">
+                    <h1 class="block-title">资料证明</h1>
+                    <div class="items">
+                        <p>求助者：{{detail.helperName}}</p>
+                        <div class="checked"><img src="img/pro_checked.png" alt="">身份证明已审核</div>
+                        <p>收款人：{{detail.payeeName}}（{{relationshipWord}}）</p>
+                        <div class="checked"><img src="img/pro_checked.png" alt="">身份证明已审核<img src="img/pro_checked.png" alt="">关系证明已审核</div>
+                    </div>
+                </div>
+                <div class="pro-detail">
+                    <h1 class="block-title">增信补充说明</h1>
+                    <div class="items">
+                        <!--<p>家庭财产状况</p>-->
+                        <div class="checked" v-for="item in detail.tags"><img src="img/pro_checked.png" alt="">{{item}}</div>
+                        <p v-if="!detail.tags.length">暂无</p>
+                    </div>
+                    <div class="extra-doc" v-if="false">
+                        发起人承诺书
+                        <div class="tri"><span>查看</span><img src="img/pro_tri.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="pro-detail" v-if="detail.status == 3">
+                    <h1 class="block-title">转款信息</h1> 
+                    <div class="words" :style="{height: heightAuto2 ? 'auto' : '', maxHeight: heightAuto2 ? 'initial' : ''}">
+                        {{detail.doneContent}}
+                        <div class="more orange" @click="heightAuto2 = true" v-if="!heightAuto2">查看原文<img src="img/pro_more.png" alt=""></div>
+                    </div>
+                    <div class="pics">
+                        <img :src="item" alt="" v-for="(item, index) in detail.doneImages" @click="openPhoto(index, 'doneImages')">
+                    </div>
+                </div>
+                <div class="testify">
+                    <p>有<span>{{detail.verifyCount}}</span>人实名为TA证实</p>
+                    <div class="people" v-if="detail.verifyCount" @click="clicked('/confirmationlist.html?id=' + id + '&disabled=' + (detail.status != 2))">
+                        <img :src="item.image" alt="" class="portrait" v-for="(item, index) in detail.verifys" v-if="index < 8">
+                        <img src="img/ellipsis.png" alt="" class="ellipsis">
+                        <div class="tri"><img src="img/pro_tri.png" alt=""></div>
+                    </div>
+                    <div class="testify-btn" :class="{'disabled': detail.status != 2}" @click="goAuto()">帮TA证实</div>
+                </div>
+                <div class="help-list">
+                    <h1 class="block-title">TA的帮助</h1>
+                    <ul>
+                        <li v-for="(item, itemIndex) in helpList">
+                            <div class="pic">
+                                <img :src="item.donorImage" alt="" class="img">
+                                <div class="heart">{{item.totalLove}}</div>
+                            </div>
+                            <div class="float">
+                                <p>
+                                    <span class="green">{{item.donorNickName}}</span> 支持了<span class="orange">{{item.amount}}</span>元<br>
+                                    爱心值<span class="orange">↑{{item.love}}</span>&nbsp;&nbsp;&nbsp;交易ID：&nbsp;<span class="green">*******</span><br>
+                                    {{item.donateTime}}
+                                </p>
+                                <div class="evaluate-icon" @click="openPing(item.id)"><img src="img/evaluate_green.png" alt=""></div>
+                                
+                            </div>
+                            <div class="fallback">
+                                <div class="coms" v-if="item.replys.length">
+                                    <p class="line" v-for="reply in item.replys"><span class="name" @click="openPing(item.id, reply.replierId, reply.replierName)">{{reply.replierName}}</span>{{reply.receiverName ? '回复' : ''}}<span class="name">{{reply.receiverName ? reply.receiverName : ''}}</span>:&nbsp;{{reply.content}}</p>
+                                </div>
+                            </div>
+                            <div class="ping" v-show="item.pingDisplay" :ref="'ping' + itemIndex">
+                                <div class="maskTop" @touchstart="closePing(item.id)" :style="{'height': item.maskTop + 'px', 'top': '-' + item.maskTop + 'px'}"></div>
+                                <input type="text" @input="inputPing($event.target.value)" v-bind:placeholder="'回复：' + (pingReplierName ? pingReplierName : '')" ><!-- v-focus-->
+                                <div class="btn" :class="{'disable': !pingDis}" @click="ping()">提交</div>
+                                <div class="maskBto" @touchstart="closePing(item.id)" :style="{'height': item.maskBto + 'px'}"></div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="items" v-if="!helpList.length"><p>还没有人帮助ㄒoㄒ</p></div>
+                    
+                </div>
+            </div>
+            <div class="landing marginB32">
+                <div class="main-btn">下载app</div>
+            </div>
+        </div>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/helpprodetail.js'></script>
+</body>
+</html>

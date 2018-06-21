@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+	<meta name="misapplication-tap-highlight" content="no"/>
+	<meta name="HandheldFriendly" content="true"/>
+	<meta name="MobileOptimized" content="320"/>
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+<body style="background: #f2f0f0;">
+	<div id="app">
+		<error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="landing">
+            <div class="login adjust-re">
+                <div class="item">
+                    <input type="password" placeholder="请输入旧密码" v-model="form.oldpwd">
+                </div>
+                 <div class="item">
+                    <input type="password" placeholder="请输入新密码" v-model="form.pwd">
+                </div>
+                <div class="item">
+                    <input type="password" placeholder="再次输入密码" v-model="form.pwdCheck">
+                </div>
+            </div>
+            <div class="main-btn" @click="submit">完成</div>
+        </div>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+    <script type='text/javascript' src='../js/page/modifypwd.js'></script>
+</body>
+</html>

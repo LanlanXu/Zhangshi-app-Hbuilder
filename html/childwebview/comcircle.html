@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="../css/base.css" rel="stylesheet" type="text/css" />
+	<link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../js/public/common.js"></script>
+	<script type="text/javascript" src="../js/public/immersed.js"></script>
+	<script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='../js/public/swiper.min.js'></script>
+	<script src="../js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body style="background: #f8f8f8;">
+	<div id="app">
+		<error-msg :msg="msg" ref="msg"></error-msg>
+		<div class="com-circle" ref="body">
+			<ul v-if="data.length">
+				<li v-for="(item, itemIndex) in data">
+					<img :src="item.publisherImage" alt="" class="pic">
+					<div class="float">
+						<h1 class="name">{{item.nickName}}</h1>
+						<p class="content">{{item.dynamic.content}}</p>
+						<div class="imgs" v-if="item.attas.length">
+							<img :src="atta.attaUrl" alt="" v-for="(atta, index) in item.attas" @click="openPhoto(itemIndex, index)">
+						</div>
+						<div class="addr" v-if="item.dynamic.addr">{{item.dynamic.addr}}</div>
+						<div class="opt">
+							<span class="time">{{item.dynamic.publishTime}}</span>
+							<div class="btn">
+								<div class="btn-op" @click="openOpts(item.dynamic.id)"></div>
+								<div class="btns" v-if="item.optDisplay">
+									<div class="maskTop" @click="closeOpts(item.dynamic.id)" :style="{'height': item.maskTopOpts + 'px', 'top': '-' + item.maskTopOpts + 'px'}"></div>
+									<ul :ref="'opts' + itemIndex">
+										<li @click="zan(item.dynamic.id)"><img src="../img/zan.png" alt="">{{item.like ? '取消' : '点赞'}}</li>
+										<li @click="openPing(item.dynamic.id)"><img src="../img/ping.png" alt="">留言</li>
+										<!--<li><img src="../img/shang.png" alt="">打赏</li>-->
+									</ul>
+									<div class="maskBto" @click="closeOpts(item.dynamic.id)" :style="{'height': item.maskBtoOpts + 'px'}"></div>
+								</div>
+							</div>
+						</div>
+						<div class="fallback">
+							<p class="zan" v-if="item.likes && item.likes.length"><img src="../img/zande.png" alt="">
+								<template v-for="(like, index) in item.likes">{{like.nickName}}{{index != (item.likes.length - 1) ? ',&nbsp;' : '' }}</template>
+							</p>
+							<div class="coms" v-if="item.replys.length">
+								<p class="line" v-for="reply in item.replys"><span class="name" @click="openPing(item.dynamic.id, reply.replierId, reply.replierName)">{{reply.replierName}}</span>{{reply.receiverName
+									? '回复' : ''}}<span class="name">{{reply.receiverName ? reply.receiverName : ''}}</span>:&nbsp;{{reply.content}}</p>
+							</div>
+						</div>
+						<div class="ping" v-show="item.pingDisplay" :ref="'ping' + itemIndex">
+							<div class="maskTop" @click="closePing(item.dynamic.id)" :style="{'height': item.maskTop + 'px', 'top': '-' + item.maskTop + 'px'}"></div>
+							<input type="text" v-model="inputClear" @input="inputPing($event.target.value)" v-bind:placeholder="'回复：' + (pingReplierName ? pingReplierName : '')">
+							<!-- v-focus-->
+							<div class="btn" :class="{'disable': !pingDis}" @click="ping()">提交</div>
+							<div class="maskBto" @click="closePing(item.dynamic.id)" :style="{'height': item.maskBto + 'px'}"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<load-more :datalength="datalength" ref="load"></load-more>
+	</div>
+	<script type='text/javascript' src='../js/public/global.js'></script>
+	<script type='text/javascript' src='../js/page/comcircle.js'></script>
+</body>
+
+</html>

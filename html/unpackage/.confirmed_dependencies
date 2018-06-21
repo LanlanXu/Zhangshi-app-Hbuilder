@@ -1,0 +1,414 @@
+{
+  "index.html": {
+    "refer": [
+      "openbarcode.html",
+      "lotshelp.html",
+      "list.html",
+      "helpmanpages.html",
+      "enterprisecircle.html",
+      "personalcenter.html",
+      "rescuelist.html",
+      "enterprise.html",
+      "helpprodetail.html",
+      "login.html",
+      "articlelist.html",
+      "genealogy.html",
+      "genealogydetail.html",
+      "articledetail.html"
+    ],
+    "resources": [
+      "/login.html",
+      "/book/3/index.jpg",
+      "/book/1/index.jpg",
+      "/book/4/index.jpg",
+      "/book/2/index.jpg",
+      "/genealogydetail.html",
+      "/helpprodetail.html",
+      "/personalcenter.html",
+      "/articledetail.html"
+    ]
+  },
+  "lotshelp.html": {
+    "refer": [
+      "helpprodetail.html",
+      "enterprisecircle.html",
+      "index.html"
+    ],
+    "resources": []
+  },
+  "list.html": {
+    "refer": [
+      "mydonation.html",
+      "personalcenter.html",
+      "infomodify.html",
+      "helpmanpages.html",
+      "findpwd.html",
+      "login.html",
+      "register.html",
+      "feedback.html",
+      "helplaunch.html",
+      "projectvetify.html"
+    ],
+    "resources": []
+  },
+  "login.html": {
+    "resources": [
+      "childwebview/login.html"
+    ],
+    "refer": [
+      "childwebview/login.html"
+    ]
+  },
+  "infomodify.html": {
+    "resources": [
+      "childwebview/infomodify.html"
+    ],
+    "refer": [
+      "childwebview/infomodify.html"
+    ]
+  },
+  "feedback.html": {
+    "resources": [
+      "childwebview/feedback.html"
+    ],
+    "refer": [
+      "childwebview/feedback.html"
+    ]
+  },
+  "register.html": {
+    "resources": [
+      "childwebview/register.html"
+    ],
+    "refer": [
+      "childwebview/register.html"
+    ]
+  },
+  "helplaunch.html": {
+    "resources": [
+      "childwebview/helplaunch.html"
+    ],
+    "refer": [
+      "childwebview/helplaunch.html"
+    ]
+  },
+  "findpwd.html": {
+    "resources": [
+      "childwebview/findpwd.html"
+    ],
+    "refer": [
+      "childwebview/findpwd.html"
+    ]
+  },
+  "projectvetify.html": {
+    "resources": [
+      "childwebview/projectvetify.html"
+    ],
+    "refer": [
+      "childwebview/projectvetify.html"
+    ]
+  },
+  "helpmanpages.html": {
+    "refer": [
+      "helplaunch.html",
+      "login.html"
+    ],
+    "resources": []
+  },
+  "childwebview/helplaunch.html": {
+    "refer": [
+      "childwebview/helplaunch.html",
+      "success.html"
+    ],
+    "resources": []
+  },
+  "enterprisecircle.html": {
+    "resources": [
+      "childwebview/entercircle.html"
+    ],
+    "refer": [
+      "childwebview/comcircle.html",
+      "childwebview/entercircle.html",
+      "edit.html",
+      "login.html"
+    ]
+  },
+  "childwebview/comcircle.html": {
+    "refer": [
+      "index.html",
+      "personalcenter.html",
+      "lotshelp.html",
+      "login.html",
+      "photos.html"
+    ],
+    "resources": []
+  },
+  "childwebview/entercircle.html": {
+    "refer": [
+      "index.html",
+      "enterprise.html",
+      "lotshelp.html"
+    ],
+    "resources": []
+  },
+  "projectvetifystep1.html": {
+    "resources": [
+      "childwebview/projectvetifystep1.html"
+    ],
+    "refer": [
+      "childwebview/projectvetifystep1.html"
+    ]
+  },
+  "success.html": {
+    "refer": [
+      "projectvetifystep1.html"
+    ],
+    "resources": []
+  },
+  "childwebview/projectvetifystep1.html": {
+    "refer": [
+      "vertifydata.html"
+    ],
+    "resources": []
+  },
+  "enterprise.html": {
+    "refer": [
+      "productlist.html",
+      "productdetail.html"
+    ],
+    "resources": []
+  },
+  "edit.html": {
+    "resources": [
+      "childwebview/edit.html"
+    ],
+    "refer": [
+      "childwebview/edit.html"
+    ]
+  },
+  "personalcenter.html": {
+    "refer": [
+      "login.html",
+      "mydonation.html",
+      "rescuemng.html",
+      "infomodify.html",
+      "modifyphone.html",
+      "modifypwd.html",
+      "feedback.html",
+      "enterpriseauth.html",
+      "personalauth.html",
+      "aboutus.html",
+      "rescuelist.html",
+      "modifyemail.html"
+    ],
+    "resources": []
+  },
+  "vertifydata.html": {
+    "refer": [
+      "projectvetify.html",
+      "vertifysuccess.html"
+    ],
+    "resources": []
+  },
+  "childwebview/projectvetify.html": {
+    "refer": [
+      "vertifysuccess.html"
+    ],
+    "resources": []
+  },
+  "vertifysuccess.html": {
+    "refer": [
+      "personalcenter.html",
+      "index.html"
+    ],
+    "resources": []
+  },
+  "modifyphone.html": {
+    "resources": [
+      "childwebview/modifyphone.html"
+    ],
+    "refer": [
+      "childwebview/modifyphone.html"
+    ]
+  },
+  "modifypwd.html": {
+    "resources": [
+      "childwebview/modifypwd.html"
+    ],
+    "refer": [
+      "childwebview/modifypwd.html"
+    ]
+  },
+  "help.html": {
+    "resources": [
+      "childwebview/help.html"
+    ],
+    "refer": [
+      "childwebview/help.html"
+    ]
+  },
+  "childwebview/helpprodetail.html": {
+    "refer": [
+      "help.html",
+      "login.html",
+      "realnameauth.html",
+      "lovecontributionlist.html",
+      "confirmationlist.html"
+    ],
+    "resources": [
+      "photos.html"
+    ]
+  },
+  "helpprodetail.html": {
+    "resources": [
+      "childwebview/helpprodetail.html"
+    ],
+    "refer": [
+      "childwebview/helpprodetail.html"
+    ]
+  },
+  "childwebview/login.html": {
+    "refer": [
+      "register.html",
+      "findpwd.html",
+      "index.html"
+    ],
+    "resources": []
+  },
+  "enterpriseauth.html": {
+    "resources": [
+      "childwebview/enterpriseauth.html"
+    ],
+    "refer": [
+      "childwebview/enterpriseauth.html"
+    ]
+  },
+  "personalauth.html": {
+    "resources": [
+      "childwebview/personalauth.html"
+    ],
+    "refer": [
+      "childwebview/personalauth.html"
+    ]
+  },
+  "articlelist.html": {
+    "refer": [
+      "articledetail.html"
+    ],
+    "resources": []
+  },
+  "realnameauth.html": {
+    "resources": [
+      "childwebview/realnameauth.html"
+    ],
+    "refer": [
+      "childwebview/realnameauth.html"
+    ]
+  },
+  "rescuelist.html": {
+    "refer": [
+      "rescuemng.html",
+      "childwebview/rescuelist.html"
+    ],
+    "resources": [
+      "childwebview/rescuelist.html"
+    ]
+  },
+  "rescuemng.html": {
+    "refer": [
+      "helpprodetail.html",
+      "helplaunch.html",
+      "childwebview/rescuemng.html"
+    ],
+    "resources": [
+      "childwebview/rescuemng.html"
+    ]
+  },
+  "confirmationlist.html": {
+    "refer": [
+      "realnameauth.html"
+    ],
+    "resources": []
+  },
+  "childwebview/rescuelist.html": {
+    "refer": [
+      "rescuemng.html",
+      "login.html"
+    ],
+    "resources": [
+      "/login.html"
+    ]
+  },
+  "childwebview/rescuemng.html": {
+    "refer": [
+      "helplaunch.html",
+      "projectvetifystep1.html",
+      "helpprodetail.html"
+    ],
+    "resources": []
+  },
+  "genealogy.html": {
+    "resources": [
+      "childwebview/familytree.html"
+    ],
+    "refer": [
+      "childwebview/familytree.html",
+      "childwebview/genealogylist.html",
+      "login.html",
+      "addnumber.html"
+    ]
+  },
+  "childwebview/genealogylist.html": {
+    "refer": [
+      "genealogybook.html",
+      "genealogydetail.html"
+    ],
+    "resources": []
+  },
+  "genealogydetail.html": {
+    "resources": [
+      "childwebview/genealogydetail.html"
+    ],
+    "refer": [
+      "childwebview/genealogydetail.html"
+    ]
+  },
+  "childwebview/genealogydetail.html": {
+    "refer": [
+      "genealogybook.html",
+      "addnumber.html"
+    ],
+    "resources": [
+      "/genealogybook.html"
+    ]
+  },
+  "/login.html": {
+    "refer": [
+      "login.html"
+    ],
+    "resources": []
+  },
+  "childwebview/addnumber.html": {
+    "resources": [
+      "/login.html"
+    ],
+    "refer": [
+      "/login.html"
+    ]
+  },
+  "addnumber.html": {
+    "resources": [
+      "childwebview/addnumber.html"
+    ],
+    "refer": [
+      "childwebview/addnumber.html"
+    ]
+  },
+  "modifyemail.html": {
+    "resources": [
+      "childwebview/modifyemail.html"
+    ],
+    "refer": [
+      "childwebview/modifyemail.html"
+    ]
+  }
+}

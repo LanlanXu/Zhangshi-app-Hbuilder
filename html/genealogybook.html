@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="misapplication-tap-highlight" content="no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+    <link href="css/basic.css" rel="stylesheet" type="text/css" />
+    <link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/public/common.js"></script>
+    <script type="text/javascript" src="js/public/immersed.js"></script>
+    <script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+    <!--<script type='text/javascript' src='js/public/swiper.min.js'></script>-->
+    <script type="text/javascript" src="js/public/modernizr.2.5.3.min.js"></script>
+
+    <script src="js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+    <div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <header>
+            <div class="header-wrap">
+                <div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+                <span class="title">{{title}}</span>
+                <img class="menu" src="img/menu.png" alt="" @click="controlthumb()">
+            </div>
+        </header>
+        <!--<div class="book" style="display: none;">
+            <h1>三槐堂颖淮王氏</h1>
+            <div class="line">
+                <div class="left">公孙支系王宇分支世系</div>
+                <div class="right">槐36世</div>
+            </div>
+        </div>-->
+        <div class="shade">
+            <div class="sk-fading-circle">
+                <div class="sk-circle1 sk-circle"></div>
+                <div class="sk-circle2 sk-circle"></div>
+                <div class="sk-circle3 sk-circle"></div>
+                <div class="sk-circle4 sk-circle"></div>
+                <div class="sk-circle5 sk-circle"></div>
+                <div class="sk-circle6 sk-circle"></div>
+                <div class="sk-circle7 sk-circle"></div>
+                <div class="sk-circle8 sk-circle"></div>
+                <div class="sk-circle9 sk-circle"></div>
+                <div class="sk-circle10 sk-circle"></div>
+                <div class="sk-circle11 sk-circle"></div>
+                <div class="sk-circle12 sk-circle"></div>
+            </div>
+            <div class="number">3%</div>
+        </div>
+        <div class="flip-btns" v-show="btnBool">
+            <div ignore="1" class="next-button" @click="toPage('next')"></div>
+            <div ignore="1" class="previous-button" @click="toPage('pre')"></div>
+        </div>
+        <div class="flipbook-viewport" style="display:none; padding-top: 1rem;">
+            <div class="container">
+                <div class="flipbook">
+                </div>
+            </div>
+            <transition name="fade">
+                <div class="thumb" v-show="thumbShow" id="thumb">
+                    <ul ref="ul">
+                        <li v-for="item in thumblist" :class="{'on': page == item.index}" @click="toPage(item.index)">
+                            <img :src="item.urlsrc" alt="" class="img">
+                            <p class="num">{{item.index}}</p>
+                        </li>
+                    </ul>
+                </div>
+            </transition>
+        </div>
+        <div id="layer" class="genealogybook_layer"></div>
+        <!--<div class="page">{{page}}页</div>-->
+        <transition name="slide">
+            <div class="turn" v-show="optShow">
+                <div><span class="iconfont icon-diyiye" title="第一页" @click="toPage('first')"><img src="img/book_first.png" alt=""></span></div>
+                <div><span class="iconfont icon-xiangzuojiantou" title="上一页" @click="toPage('pre')"><img src="img/book_pre.png" alt=""></span></div>
+                <div class="yeshu">
+                    <input type="number" placeholder="页数" min="1" v-model="page">
+                    <img class="iconfont icon-toright" src="img/topage.png" alt="" @click="toPage()">
+                </div>
+                <div><span class="iconfont icon-xiangyoujiantou" title="下一页" @click="toPage('next')"><img src="img/book_next.png" alt=""></span></div>
+                <div><span class="iconfont icon-zuihouyiye" title="最后一页" @click="toPage('last')"><img src="img/book_last.png" alt=""></span></div>
+            </div>
+        </transition>
+        <div class="gene-bottom five">
+            <span class="iconfont" title="第一页" @click="toPage('first')"><img src="img/book_first.png" alt=""></span>
+            <span class="iconfont" title="跳转到" @click="optShow=!optShow"><img src="img/book_opt.png" alt=""></span>
+            <span class="iconfont" title="自动翻页" @click="setTimer"><img src="img/book_stop_timer.png" alt="" v-if="!timerBool"><img src="img/book_on_timer.png" alt="" v-if="timerBool"></span>
+            <span class="iconfont" title="自动翻页" @click="zoomContol"><img src="img/enlarge.png" alt="" v-if="!zoomBool"><img src="img/narrow.png" alt="" v-if="zoomBool"></span>
+            <span class="iconfont" title="最后一页" @click="toPage('last')"><img src="img/book_last.png" alt=""></span>
+        </div>
+        <audio preload="" controls="controls" ref="audio" v-show="false">
+            <source src="sound/flipsound.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script type='text/javascript' src='js/public/global.js'></script>
+    <script type="text/javascript" src="js/public/bookmain.js"></script>
+    <script type='text/javascript' src='js/page/genealogybook.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="misapplication-tap-highlight" content="no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+    <script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='../js/public/swiper.min.js'></script>
+    <script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+
+<body style="background: #f8f8f8;">
+    <div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="help-launch">
+            <h1 class="title">目标金额</h1>
+            <!-- v-model="form.money"-->
+            <input type="text" pattern="[0-9]*" ref="input" v-model="form.money" placeholder="请填写目标金额" class="short" @input="updateValue($event.target.value)">
+            <span class="yuan">元</span>
+            <h1 class="title" v-if="typeShow">所属类型</h1>
+            <select v-model="form.helpType" v-if="typeShow">
+                <option value="1">重大疾病</option>
+                <option value="2">贫困求学</option>
+                <option value="3">孤寡求助</option>
+            </select>
+            <h1 class="title">所属分会</h1>
+            <select v-model="form.orgType">
+                <option :value="item.id" v-for="item in orgList">{{item.name}}</option>
+            </select>
+            <h1 class="title">标题<a href="#" class="link" v-show="false">参考示例</a></h1>
+            <input type="text" placeholder="简单描述需要众筹的内容标题（不超过30个字）" maxlength="30" v-model="form.title">
+            <h1 class="title">求助内容<a href="#" class="link" v-show="false">参考示例</a></h1>
+            <textarea v-model="form.cont" cols="30" rows="4" placeholder="请填写详细救助原因，救助目的，申请人情况及善款用途信息（不少于10个字）" required="required"></textarea>
+
+            <h1 class="title">添加项目图片<a href="#" class="link" v-show="false">上传指南</a></h1>
+            <div class="upload">
+                <ul class="imgs">
+                    <li v-for="let (item, index) in photoList">
+                        <img :src="item" alt="">
+                        <span class="close" @click="deletePhoto(index)"></span>
+                    </li>
+                    <li v-if="photoList.length && photoList.length < 8">
+                        <input type="file" multiple accept="image/*" @change="showImg">
+                        <img src="../img/add.png" alt="" class="add">
+                    </li>
+                </ul>
+                <div class="word" v-if="!photoList.length">
+                    <input type="file" multiple accept="image/*" @change="showImg"> + 点击上传项目图片1~8张</div>
+            </div>
+        </div>
+        <div class="landing">
+            <p class="read"><span class="radio_green" :class="{'on': agreed}" @click="agreed = !agreed"></span>已阅读并同意《<a class="link" @click="openlayer('protoBool')">湖北张氏千人筹项目发起条款</a>》及《
+                <a class="link" @click="openlayer('protoBoolTwo')">发起人承诺书</a>》</p>
+            <button class="main-btn" :disabled="!agreed" @click="submit">提交</button>
+            <!--submit-->
+            <p class="tele">客服电话：<a href="tel:027-81801226" class="green">027-81801226</a></p>
+        </div>
+        <div class="out-layer" v-show="protoBool" :class="{out: protoBool}">
+            <div class="content" id="layer">
+                <div class="wrap">
+                    <h1>湖北张氏千人筹项目发起条款</h1>
+                    <div class="fixed-height">
+                        <p>
+                            <strong>项目发起人资格</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;18周岁以上，中华人民共和国公民，拥有能够在中国地区接受人民币汇款的银行卡或支付宝账户；
+                            提供必要的身份证和资质认证，根据项目内容，有可能包括但不限于：身份证、护照、学历证明等；
+                            <br><strong>项目发布</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;根据相关法律法规，项目提交后，须经过网站工作人员审核后才能发布； 根据项目的内容，工作人员会要求发起人提供相关材料，证明项目的可行性，以及发起人的执行能力；
+                            网站对提交筹资审核的项目是否拥有上线资格具有最终决定权（具备筹资上线资格的项目的上线时间由项目发起人自行决定）； 发起人需要提交身份信息的，请务必上传相关图片，包括受助人身份信息，带有医院公章的医院诊断证明及其他相关证明材料；
+                            项目结束后提现的账号必须是受助人本人或直系亲属； 因国家宏观政策以及法律法规、相关监管规定的调整，平台有权随时对发布项目进行调整、下线且不承担任何相关责任。 根据慈善法，千人筹通道项目为互助和赠与行为，不属于公益慈善项目，在未与具有公开募捐资质的慈善组织合作的情况下，不得以任何公益机构的名义募捐。
+                            用户同意千人筹在项目筹资成功后收取一定金额服务费，具体收取标准如下：
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;1.重大疾病项目收取服务费用为已筹金额2%（限时免费）；
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;2.贫困求学项目收取服务费用为已筹金额5%;
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;3.孤寡求助项目收取服务费用为已筹金额5%; 因使用第三方支付产生的使用成本由用户承担。
+                            <br><strong>免责声明</strong><br> &nbsp;&nbsp;&nbsp;&nbsp;请您使用本网站前仔细阅读本法律声明，您一旦使用本网站则表明您已知晓并接受这些条款，且应按照相关法律法规的规定和本声明的要求使用本网站的项目与服务，并承担相应的法律责任。
+                            知识产权归属
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;本网站的注册域名、商标标识及专有名称等的所有权及知识产权归湖北张氏文化产业有限公司所有，本网站所包括内容（包括但不限于文字、图片、图案、网页、视像及声音内容、数据库、程序、LOGO标识、版面设计、专栏目录与名称、内容分类）的所有权及知识产权归湖北张氏文化产业有限公司及相关权利人所有，受到相关法律法规的保护。
+                        </p>
+                    </div>
+                    <div class="landing">
+                        <button class="main-btn" @click="closePhotos">知道了</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="out-layer" v-show="protoBoolTwo" :class="{out: protoBoolTwo}">
+            <div class="content">
+                <div class="wrap">
+                    <h1>发起人承诺书</h1>
+                    <div class="fixed-height">
+                        <p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;项目发起人承诺，涉及本项目的文字、图片、证明等相关信息完全真实、有效，且不存在未经他人授权冒用他人名义进行求助的行为。本人收到的全部救助款项将直接用于被救助人的救助，不另行挪作他用。若发起人存在违反上述承诺的行为，愿自行承担全部法律责任。
+                        </p>
+                    </div>
+                    <div class="landing">
+                        <button class="main-btn" @click="closePhotos">知道了</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type='text/javascript' src='../js/public/global.js'></script>
+    <script type='text/javascript' src='../js/page/helplaunch.js'></script>
+</body>
+
+</html>

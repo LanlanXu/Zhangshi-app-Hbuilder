@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/public/common.js"></script>
+	<script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+				<span class="title">我的捐赠</span>
+			</div>
+		</header>
+		<ul class="donation-list">
+			<li v-for="item in data">
+				<!--<p><img src="img/donation_icon1.png" alt="">爱心单号：8909890219</p>-->
+				<p><img src="img/donation_icon2.png" alt="">爱心状态：<span :class="{'red': item.helpStatus == 2, 'green': item.helpStatus == 3}">{{item.helpStatus == 2 ? '进行中' : '已完结'}}</span></p>
+				<p><img src="img/donation_icon3.png" alt="">捐赠主题：{{item.helperTitle}}</p>
+				<p><img src="img/donation_icon4.png" alt="">捐赠时间：{{item.donateTime.slice(0, -2)}}</p>
+				<p><img src="img/donation_icon5.png" alt="">捐赠金额：￥{{item.amount}}</p>
+			</li>
+		</ul>
+		<load-more :datalength="datalength" ref="load"></load-more>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/mydonation.js'></script>
+</body>
+
+</html>

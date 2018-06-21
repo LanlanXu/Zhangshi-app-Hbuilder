@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="misapplication-tap-highlight" content="no" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="../css/base.css" rel="stylesheet" type="text/css" />
+    <link href="../css/swiper.min.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../js/public/common.js"></script>
+    <script type="text/javascript" src="../js/public/immersed.js"></script>
+    <script type='text/javascript' src='../js/public/jquery-2.1.4.min.js'></script>
+    <script type='text/javascript' src='../js/public/swiper.min.js'></script>
+    <script src="../js/public/vue.js"></script>
+    <title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+    <div id="app">
+        <error-msg :msg="msg" ref="msg"></error-msg>
+        <div class="genea-detail" v-if="detail">
+            <div class="detail">
+                <div class="pic" @click="clicked('/genealogybook.html?bookid=' + id + '&title=' + title)" :types="'type' + (detail.doctype + 1)">
+                    <div class="bg"></div>
+                    <div class="title">
+                        <div class="top"></div>
+                        <div class="middle">
+                            <p>{{detail.name}}</p>
+                        </div>
+                        <div class="bottom"></div>
+                    </div>
+                </div>
+                <span class="title">{{detail.name}}</span><br>
+                <span class="orange" @click="clicked('/genealogyformat.html?bookid=' + id + '&title=' + title)"><img src="../img/zupu_icon1.png" alt="" class="icon">查看族谱</span>
+                <span class="orange" @click="clicked('/addnumber.html?bookid=' + id)"><img src="../img/zupu_icon2.png" alt="" class="icon">添加人丁</span><br>
+                <span class="item">联系人：{{detail.linkMan}} </span><span class="item">电话：{{detail.linkNum}}</span><br>
+                <span class="item">总&nbsp;&nbsp;&nbsp;&nbsp;计：{{detail.page}}页 </span><span class="item">时间：{{formatDate(detail.createTime)}}</span>
+            </div>
+            <div class="more-detail">
+                <div class="line">
+                    <div class="left">族谱简介：</div>
+                    <div class="right">创建时间：{{formatDate(detail.createTime)}}</div>
+                </div>
+                <div class="word" :style="{height: heightAuto ? 'auto' : '', maxHeight: heightAuto ? 'initial' : ''}">{{detail.description}}
+                    <div class="more" @click="heightAuto = true" v-if="!heightAuto">查看全部</div>
+                </div>
+
+            </div>
+        </div>
+        <div class="info-modify help gene">
+            <div class="row">
+                <div class="label">关键词搜索：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入关键词搜索" v-model="form.key">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">世系检索：</div>
+                <div class="cont">
+                    <input type="number" placeholder="输入世系检索" v-model="form.Level">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">辈分检索：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入辈分检索" v-model="form.Middlename">
+                </div>
+            </div>
+            <!--<div class="row">
+                <div class="label">地区检索：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入地区检索">
+                </div>
+            </div>
+            <div class="row">
+                <div class="label">堂号：</div>
+                <div class="cont">
+                    <input type="text" placeholder="输入堂号">
+                </div>
+            </div>-->
+        </div>
+        <div class="landing marginB32">
+            <div class="main-btn" @click="search" :class="{'disabled': disabled}"><img src="../img/search_ge.png" alt="" class="search">检索</div>
+        </div>
+    </div>
+    <script type='text/javascript' src='../js/public/global.js'></script>
+    <script type='text/javascript' src='../js/page/genealogydetail.js'></script>
+</body>
+
+</html>

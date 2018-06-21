@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<meta name="misapplication-tap-highlight" content="no" />
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="MobileOptimized" content="320" />
+	<link href="css/base.css" rel="stylesheet" type="text/css" />
+	<link href="css/swiper.min.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/public/common.js"></script>
+	<script type="text/javascript" src="js/public/immersed.js"></script>
+	<script type='text/javascript' src='js/public/jquery-2.1.4.min.js'></script>
+	<script type='text/javascript' src='js/public/swiper.min.js'></script>
+	<script src="js/public/vue.js"></script>
+	<title>张氏</title>
+</head>
+
+<body style="background: #f2f0f0;">
+	<div id="app">
+		<header>
+			<div class="header-wrap">
+				<div class="back" ontouchstart="back();"><img src="img/back.png" alt="" /></div>
+				<span class="title">个人中心</span>
+			</div>
+		</header>
+		<div class="mine">
+			<div class="items">
+				<div class="item" ontouchstart="clicked('/infomodify.html')"><img src="img/mine_icon1.png" alt="">我的资料</div>
+				<div class="item" ontouchstart="clicked('/personalauth.html')"><img src="img/mine_icon_aut.png" alt="">个人认证</div>
+				<div class="item" ontouchstart="clicked('/enterpriseauth.html')"><img src="img/mine_icon_enter.png" alt="">企业认证</div>
+				<div class="item" ontouchstart="clicked('/mydonation.html')"><img src="img/mine_icon2.png" alt="">我的捐赠</div>
+				<div class="item" ontouchstart="clicked('/rescuelist.html')"><img src="img/mine_icon3.png" alt="">发起的救助</div>
+				<div class="item" ontouchstart="clicked('/modifyphone.html')"><img src="img/mine_icon4.png" alt="">修改绑定手机号</div>
+				<div class="item" ontouchstart="clicked('/modifyemail.html')"><img src="img/min_icon_email.png" alt="">修改绑定邮箱</div>
+				<div class="item" ontouchstart="clicked('/modifypwd.html')"><img src="img/mine_icon5.png" alt="">修改密码</div>
+			</div>
+			<div class="items">
+				<div class="item" ontouchstart="clicked('/aboutus.html')"><img src="img/mine_icon1.png" alt="">关于我们</div>
+				<div class="item" ontouchstart="clicked('/feedback.html')"><img src="img/mine_icon6.png" alt="">意见反馈</div>
+				<div class="item" @click="clearSession"><img src="img/mine_icon7.png" alt="">清空缓存</div>
+			</div>
+		</div>
+		<div class="landing">
+			<div class="main-btn" @click="logout">退出登录</div>
+		</div>
+	</div>
+	<script type='text/javascript' src='js/public/global.js'></script>
+	<script type='text/javascript' src='js/page/personalcenter.js'></script>
+</body>
+
+</html>
