@@ -16,13 +16,13 @@
     <title>张氏</title>
 </head>
 <body style="background: #f8f8f8;">
+	<header>
+		<div class="header-wrap">
+			<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+			<span class="title">产品详情</span>
+		</div> 
+	</header>
 	<div id="app" v-cloak>
-		<header>
-			<div class="header-wrap">
-				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
-				<span class="title">产品详情</span>
-			</div> 
-		</header>
 		<div class="enterprise">
 			<div class="detail" v-if="detail">
 				<h1 class="name">{{detail.name}}</h1>

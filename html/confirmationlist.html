@@ -16,13 +16,13 @@
     <title>张氏</title>
 </head>
 <body style="background: #fff;">
+    <header>
+        <div class="header-wrap">
+            <div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+            <span class="title">证实列表</span>
+        </div>
+    </header>
 	<div id="app" v-cloak>
-		<header>
-			<div class="header-wrap">
-				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
-				<span class="title">证实列表</span>
-			</div>
-		</header>
         <div class="confirm-list">
             <p class="ins">有<span class="red">{{total}}人</span>实名为Ta证实</p>
             <ul class="list">

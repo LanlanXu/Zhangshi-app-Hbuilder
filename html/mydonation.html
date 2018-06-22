@@ -18,13 +18,13 @@
 </head>
 
 <body style="background: #f2f0f0;">
+	<header>
+		<div class="header-wrap">
+			<div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+			<span class="title">我的捐赠</span>
+		</div>
+	</header>
 	<div id="app" v-cloak>
-		<header>
-			<div class="header-wrap">
-				<div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
-				<span class="title">我的捐赠</span>
-			</div>
-		</header>
 		<ul class="donation-list">
 			<li v-for="item in data">
 				<!--<p><img src="img/donation_icon1.png" alt="">爱心单号：8909890219</p>-->

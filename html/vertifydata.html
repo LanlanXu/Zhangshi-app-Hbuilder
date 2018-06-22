@@ -16,14 +16,14 @@
     <title>张氏</title>
 </head>
 <body style="background: #f2f0f0;">
+    <header>
+        <div class="header-wrap">
+            <div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
+            <span class="title">项目验证</span>
+        </div>
+    </header>
 	<div id="app" v-cloak>
         <error-msg :msg="msg" ref="msg"></error-msg>
-		<header>
-			<div class="header-wrap">
-				<div class="back"  onclick="back()"><img src="img/back.png" alt="" /></div>
-				<span class="title">项目验证</span>
-			</div>
-		</header>
         <div class="upload-data">
             <p class="alert">提示：以下信息仅用于项目验证，不会被泄露 </p>
             <div class="item">

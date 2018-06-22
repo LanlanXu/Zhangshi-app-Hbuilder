@@ -18,13 +18,13 @@
 </head>
 
 <body style="background: #f2f0f0;">
+    <header>
+        <div class="header-wrap">
+            <div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
+            <span class="title">千人众筹</span>
+        </div>
+    </header>
     <div id="app" v-cloak>
-        <header>
-            <div class="header-wrap">
-                <div class="back" onclick="back()"><img src="img/back.png" alt="" /></div>
-                <span class="title">千人众筹</span>
-            </div>
-        </header>
         <ul class="lots-help-list">
             <li v-for="item in dataList" @click="clicked('/helpprodetail.html?id=' + item.id)">
                 <!--<div class="status">已审核</div>-->
