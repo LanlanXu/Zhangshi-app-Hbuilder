@@ -16,7 +16,7 @@
     <title>张氏</title>
 </head>
 <body style="background: #f8f8f8;">
-	<div id="app">
+	<div id="app" v-cloak>
 		<error-msg :msg="msg" ref="msg"></error-msg>
         <div class="edit-page">
             <textarea name="" placeholder="填写你这一刻想交流的心情..." id="" cols="30" rows="3" class="word" v-model="form.content"></textarea>

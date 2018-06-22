@@ -16,7 +16,7 @@
     <title>张氏</title>
 </head>
 <body style="background: green;">
-	<div id="app">
+	<div id="app" v-cloak>
 		<div class="swiper-container photos" id="photos">
             <div class="swiper-wrapper" @click="closePhotos">
                 <div class="swiper-slide" v-for="item in photos.imgs"><img :src="item" alt="" /></div>
