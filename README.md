@@ -5,4 +5,3 @@
 
 ![index](http://img3.anzhi.com/data1/thumb/201803/13/b64ecdd59c32fe9b30a08e64463f6c07_42045000.jpg "index")
 ![index](http://img1.anzhi.com/data1/thumb/201803/13/5bf203ff715f2b3ef3e99210c7f9d795_44947300.jpg "index")
-![index](http://img3.anzhi.com/data1/thumb/201803/13/8f02d0bf46913a05c492b3ba870bdfb4_47946400.jpg "index")
